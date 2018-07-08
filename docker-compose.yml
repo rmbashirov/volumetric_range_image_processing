@@ -1,0 +1,15 @@
+version: '2'
+services:
+  test:
+    image: test
+    build:
+      context: .
+    ipc: host
+    network_mode: host
+    volumes:
+      - .:/workdir
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+    environment:
+      - CUDA_VISIBLE_DEVICES=0
+      - DISPLAY=$DISPLAY
+
